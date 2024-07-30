@@ -1,0 +1,20 @@
+# Template file for 'cupp'
+pkgname=cupp
+version=3.3.0
+revision=1
+_release_commit="00f7c3ee468d68488a9a84409d11e67696e9ab3e"
+archs="x86_64*"
+build_style=meta
+depends="python3"
+short_desc="Common User Passwords Profiler"
+maintainer="SpidFightFR <spidfight@swisscows.email>"
+license="GPL-3.0-only"
+homepage="https://github.com/Mebus/cupp"
+distfiles="https://github.com/Mebus/cupp/archive/${_release_commit}.tar.gz"
+checksum="ff7403c1c10f2e922b983aed368fac09f647cbf7730fac866cd0c99e4268a0c8"
+
+do_install() {
+	vinstall ${wrksrc}/cupp.py 755 usr/share/cupp cupp.py
+	vinstall ${wrksrc}/cupp.cfg 755 usr/share/cupp cupp.cfg
+	vbin ${FILESDIR}/cupp-bin cupp
+};
